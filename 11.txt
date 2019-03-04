@@ -1,0 +1,40 @@
+1.
+imfinfo('7.bmp')
+
+2.
+A1=imread('lena.bmp');subplot(3,3,1),imshow(A1);
+A2=grayslice(A1,128);subplot(3,3,2),imshow(A2,gray(128));
+A3=grayslice(A1,64);subplot(3,3,3),imshow(A3,gray(64));
+A4=grayslice(A1,32);subplot(3,3,4),imshow(A4,gray(32));
+A5=grayslice(A1,16);subplot(3,3,5),imshow(A5,gray(16));
+A6=grayslice(A1,8);subplot(3,3,6),imshow(A6,gray(8));
+A7=grayslice(A1,4);subplot(3,3,7),imshow(A7,gray(4));
+A8=grayslice(A1,2);subplot(3,3,8),imshow(A8,gray(2));
+
+3.
+f=imread('lena.bmp')
+a=std2(f);
+ans=a*a;
+b=mean2(f);
+
+4.
+A1=imread('lena.bmp');figure,imshow(A1);
+B=imresize(A1,4,'nearest');figure,imshow(B);
+C=imresize(A1,4,'bilinear');figure,imshow(C);
+D=imresize(A1,4,'bicubic');figure,imshow(D);
+  
+5.1
+A1=imread('lena.bmp');figure,imshow(A1);
+tform =affine2d([1 3/2 0;0 1 0;0 0 1]);
+A = imwarp(A1,tform);figure,imshow(A);
+B=imresize(A,[2048,2048],'nearest');figure,imshow(B);
+C=imresize(A,[2048,2048],'bilinear');figure,imshow(C);
+D=imresize(A,[2048,2048],'bicubic');figure,imshow(D);
+ 
+5.2
+A1=imread('elain1.bmp');figure,imshow(A1);
+tform =affine2d([cosd(30) -sind(30) 0;sind(30) cosd(30) 0;0 0 1]);
+A = imwarp(A1,tform);figure,imshow(A);
+B=imresize(A,[2048,2048],'nearest');figure,imshow(B);
+C=imresize(A,[2048,2048],'bilinear');figure,imshow(C);
+D=imresize(A,[2048,2048],'bicubic');figure,imshow(D);
